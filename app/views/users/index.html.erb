@@ -1,0 +1,24 @@
+<% if @users.blank? %>
+  <p>There are not any users currently in the system.</p>
+<% else %>
+  <p>These are the current users in our system</p>
+  <ul id="users">
+    <% @users.each do |c| %>
+      <li>| <%=c.name%> | <%=c.email%> |
+        <%= link_to "Show", {:action => 'show', :id => c.id} %> |
+        <%= link_to "Edit", {:action => 'edit', :id => c.id} %> |
+        <%= link_to 'Delete', user_path(c), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' } %> |
+      </li>
+  <% end %>
+    <div>
+      <%= button_to "Create News", {:action => 'new' }%>
+      <%= button_to ' Create News Category', '#', class: 'blank-button' %>
+      <%= button_to ' Edit News Category', '#', class: 'blank-button' %>
+      <%#= button_to 'Delete', user_path(c), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' } %>
+      <%= link_to 'Logout', '/home',class: 'blank-button' %>
+    </div>
+  </ul>
+<% end %>
+<p>
+  <%= link_to "Add new User", {:action => 'new' }%>
+</p>

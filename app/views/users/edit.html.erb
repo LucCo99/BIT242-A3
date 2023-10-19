@@ -1,0 +1,6 @@
+<h1>Update your profile</h1>
+<%= form_for(@user) do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %>
+  <p><%= f.label :email %> <%= f.email_field :email %>
+  <p><%= f.submit "Save changes"%>
+<% end %>

@@ -1,0 +1,7 @@
+#logout.html.erb
+<% @users.each do |user| %>
+  <h2>User Details</h2>
+  <p>Name: <%= user.name %></p>
+  <p>Email: <%= user.email %></p>
+  <!-- Add other user details as needed -->
+<% end %>

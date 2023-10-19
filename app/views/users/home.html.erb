@@ -1,0 +1,21 @@
+<h1>Fake News Management System</h1>
+
+<%= form_tag users_path, method: :get, class: "search-form" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search users" %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @users.blank? %>
+  <p>There are not any users currently in the system.</p>
+<% else %>
+  <p>These are the current users in our system</p>
+  <ul id="users">
+    <% @users.each do |c| %>
+      <li>| <%= c.name %> | <%= c.email %> |
+        <%= link_to "Read more", { action: 'show', id: c.id } %> |
+      </li>
+    <% end %>
+  </ul>
+<% end %>
